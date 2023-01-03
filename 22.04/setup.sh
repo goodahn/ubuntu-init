@@ -48,7 +48,7 @@ sudo apt update -y
 sudo apt install -y git vim tmux zsh
 
 # 4. oh-my-zsh 설치
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 sudo chsh -s $(which zsh) $USER
 
 # 5. docker 설치
