@@ -108,56 +108,58 @@ setup_color
 
 # 9.1 git 설치 확인
 if git --version > /dev/null; then
-    printf '%s git installation succeed \n' $FMT_GREEN
+    printf '%s [O] git installation succeed \n' $FMT_GREEN
 else
-    printf '%s git installation failed \n' $FMT_RED
+    printf '%s [X] git installation failed \n' $FMT_RED
 fi
 
 # 9.2 vim 설치 확인
 if vim --version > /dev/null; then
-    printf '%s vim installation succeed \n' $FMT_GREEN
+    printf '%s [O] vim installation succeed \n' $FMT_GREEN
 else
-    printf '%s vim installation failed \n' $FMT_RED
+    printf '%s [X] vim installation failed \n' $FMT_RED
 fi
 
 # 9.3 tmux 설치 확인
 if tmux -V > /dev/null; then
-    printf '%s tmux installation succeed \n' $FMT_GREEN
+    printf '%s [O] tmux installation succeed \n' $FMT_GREEN
 else
-    printf '%s tmux installation failed \n' $FMT_RED
+    printf '%s [X] tmux installation failed \n' $FMT_RED
 fi
 
 # 9.4 zsh 설치 확인
 if which zsh > /dev/null; then
-    printf '%s vim installation succeed \n' $FMT_GREEN
+    printf '%s [O] vim installation succeed \n' $FMT_GREEN
 else
-    printf '%s vim installation failed \n' $FMT_RED
+    printf '%s [X] vim installation failed \n' $FMT_RED
 fi
 
 # 9.5 docker 설치 확인
 if docker --version > /dev/null; then
-    printf '%s docker installation succeed \n' $FMT_GREEN
+    printf '%s [O] docker installation succeed \n' $FMT_GREEN
 else
-    printf '%s docker installation failed \n' $FMT_RED
+    printf '%s [X] docker installation failed \n' $FMT_RED
 fi
 
 # 9.6 pyenv 설치 확인
-if zsh -c "pyenv --version" > /dev/null; then
-    printf '%s pyenv installation succeed \n' $FMT_GREEN
+if zsh -c "source ~/.zshrc; pyenv --version" > /dev/null; then
+    printf '%s [O] pyenv installation succeed \n' $FMT_GREEN
 else
-    printf '%s pyenv installation failed \n' $FMT_RED
+    printf '%s [X] pyenv installation failed \n' $FMT_RED
 fi
 
 # 9.7 goenv 설치 확인
-if zsh -c "goenv --version" > /dev/null; then
-    printf '%s goenv installation succeed \n' $FMT_GREEN
+if zsh -c "source ~/.zshrc; goenv --version" > /dev/null; then
+    printf '%s [O] goenv installation succeed \n' $FMT_GREEN
 else
-    printf '%s goenv installation failed \n' $FMT_RED
+    printf '%s [X] goenv installation failed \n' $FMT_RED
 fi
 
 # 9.8 nvm 설치 확인
-if zsh -c "nvm --version" > /dev/null; then
-    printf '%s nvm installation succeed \n' $FMT_GREEN
+if zsh -c "source ~/.zshrc; nvm --version" > /dev/null; then
+    printf '%s [O] nvm installation succeed \n' $FMT_GREEN
 else
-    printf '%s nvm installation failed \n' $FMT_RED
+    printf '%s [X] nvm installation failed \n' $FMT_RED
 fi
+
+printf '%s\n' $FMT_RESET
