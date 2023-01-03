@@ -8,6 +8,22 @@ else
   }
 fi
 
+supports_truecolor() {
+  case "$COLORTERM" in
+  truecolor|24bit) return 0 ;;
+  esac
+
+  case "$TERM" in
+  iterm           |\
+  tmux-truecolor  |\
+  linux-truecolor |\
+  xterm-truecolor |\
+  screen-truecolor) return 0 ;;
+  esac
+
+  return 1
+}
+
 setup_color() {
   # Only use colors if connected to a terminal
   if ! is_tty; then
