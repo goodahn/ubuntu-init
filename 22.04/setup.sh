@@ -1,3 +1,13 @@
+if [ -t 1 ]; then
+  is_tty() {
+    true
+  }
+else
+  is_tty() {
+    false
+  }
+fi
+
 setup_color() {
   # Only use colors if connected to a terminal
   if ! is_tty; then
@@ -89,6 +99,9 @@ echo 'export PATH="$PATH:$GOPATH/bin"' >> ~/.zshrc
 
 # 8. nvm 설치
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+echo 'export NVM_DIR="$HOME/.nvm"' >> ~/.zshrc
+echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm' >> ~/.zshrc
+echo '[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"' >> ~/.zshrc
 
 # 9. 소프트웨어 설치 확인
 setup_color
@@ -129,21 +142,21 @@ else
 fi
 
 # 9.6 pyenv 설치 확인
-if pyenv --version > /dev/null; then
+if zsh -c "pyenv --version" > /dev/null; then
     printf '%s pyenv installation succeed \n' $FMT_GREEN
 else
     printf '%s pyenv installation failed \n' $FMT_RED
 fi
 
 # 9.7 goenv 설치 확인
-if goenv --version > /dev/null; then
+if zsh -c "goenv --version" > /dev/null; then
     printf '%s goenv installation succeed \n' $FMT_GREEN
 else
     printf '%s goenv installation failed \n' $FMT_RED
 fi
 
 # 9.8 nvm 설치 확인
-if nvm --version > /dev/null; then
+if zsh -c "nvm --version" > /dev/null; then
     printf '%s nvm installation succeed \n' $FMT_GREEN
 else
     printf '%s nvm installation failed \n' $FMT_RED
