@@ -97,6 +97,8 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plu
 # 5. docker-desktop 설치
 wget "https://desktop.docker.com/linux/main/amd64/docker-desktop-4.15.0-amd64.deb?utm_source=docker&utm_medium=webreferral&utm_campaign=docs-driven-download-linux-amd64" -O docker-desktop-amd64.deb
 sudo apt install -y ./docker-desktop-amd64.deb
+sudo groupadd docker
+sudo usermod -aG docker $USER
 rm docker-desktop-amd64.deb
 
 # 6. pyenv 설치
