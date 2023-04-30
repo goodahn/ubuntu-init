@@ -102,6 +102,7 @@ sudo usermod -aG docker $USER
 rm docker-desktop-amd64.deb
 
 # 6. pyenv 설치
+sudo apt install -y build-essential libffi-dev libbz2-dev zlib1g-dev libreadline-dev libsqlite3-dev libssl-dev liblzma-dev
 curl https://pyenv.run | bash
 echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
 echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
